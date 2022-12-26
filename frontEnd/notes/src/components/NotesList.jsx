@@ -1,11 +1,26 @@
 import React from "react";
 import Checkbox from "./Checkbox";
 
-const NotesList = () => {
+const NotesList = props => {
+    const { list, setList } = props;
+    const onChangeStatus = e => {
+        const {name, checked} = e.target;
+        const update = list.map(element => ({
+            ...element,
+            done: element.id === name ? checked : element.done})); 
+        setList(update);
+    };
+    const onRemoveNotes = e => {
+        const update = list.filter(element => !element.done);
+        setList(update);
+    }
+    const chbox = list.map(element => (<Checkbox key = {element.id} data = {element} onChange = {onChangeStatus}/>));
     return (
-        <div>
-            NotesList!
-            <Checkbox />
+        <div className="notes">
+            {list.length ? chbox : "No notes"}
+            {list.length ? (<p>
+                <button className="btn color2" onClick={onRemoveNotes}>Delete all</button>
+            </p>) : null}
         </div>
     )
 };
