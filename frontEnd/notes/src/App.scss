@@ -86,9 +86,9 @@ body {
   }
 }
 
-.input {
+.input >div {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .input > .inputText{
@@ -99,7 +99,7 @@ body {
   height: 50px;
   outline: none;
   padding: 0 10px;
-  width: 65vw;
+  width: 15vw;
 }
 
 .list {

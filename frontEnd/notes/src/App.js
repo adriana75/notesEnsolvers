@@ -1,13 +1,15 @@
 import React from 'react';
 import './App.scss';
-import Container from './components/Container'
+import Container from './components/Container';
 
-function App() {
-  return (
-    <div className="App">
-      <Container/>
-    </div>
-  );
+class App extends React.Component {
+  render(){
+    return (
+      <div>
+        <Container/>
+      </div>
+    )
+  }
 }
 
 export default App;
