@@ -16,6 +16,7 @@ const ModalList = props => {
             title,
             description
         });
+        setTitle("");
         setDescription("");
     }  
     return (
@@ -41,6 +42,7 @@ const ModalList = props => {
                     </ModalBody>
                     <ModalFooter>
                         <button onClick={openModal}>Cancel</button>
+                        
                     </ModalFooter>
                 </Modal>
             </div>

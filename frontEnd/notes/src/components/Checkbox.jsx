@@ -6,7 +6,7 @@ const Checkbox = props => {
         <Fragment>
             <label className="list newItem">
                 <input className="listState" name = {id} type="checkbox" defaultChecked =  {done} onChange = {onChange}/>
-                <h3 className="ListText">{title}</h3>
+                <div className="ListText">{title}</div>
                 <div className="listText">{description}</div>
             </label>
         </Fragment>
