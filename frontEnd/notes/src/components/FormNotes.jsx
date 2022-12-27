@@ -14,7 +14,7 @@ const FormNotes = props => {
                 <h2>My Notes</h2>
                 <ModalNotes handleAddItem = {handleAddItem} />
                 <p><a href="#">Archivied Notes</a></p>
-                <NotesList list = {list} setList = {setList}/>                                      
+                <NotesList list = {list} setList = {setList}/>                                   
             </div>
         </div>
     )

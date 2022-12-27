@@ -1,5 +1,6 @@
 import React from "react";
 import Checkbox from "./Checkbox";
+import ModalUpdate from "./ModalUpdate";
 
 const NotesList = props => {
     const { list, setList } = props;
@@ -13,13 +14,23 @@ const NotesList = props => {
     const onRemoveNotes = e => {
         const update = list.filter(element => !element.done);
         setList(update);
-    }
+    };
+    const onUpdateNotes = e => {
+        const update = list.filter(element => element.done);
+        update[0].title = "dato";
+        console.log(update[0].title);
+        setList(update)
+    };
     const chbox = list.map(element => (<Checkbox key = {element.id} data = {element} onChange = {onChangeStatus}/>));
     return (
         <div className="notes">
             {list.length ? chbox : "No notes"}
             {list.length ? (<p>
                 <button className="btn color2" onClick={onRemoveNotes}>Delete all</button>
+            </p>) : null}
+
+            {list.length ? (<p>
+                <button className="btn color2" onClick={onUpdateNotes}>Edit</button>
             </p>) : null}
         </div>
     )
