@@ -2,26 +2,31 @@
     {
         "id": 101,
         "title": "Nota1",
+        "fecha": "Diciembre 27 2022",
         "description": "Descripcion 1"
     },
     {
         "id": 102,
         "title": "Nota2",
+        "fecha": "Diciembre 27 2022",
         "description": "Descripcion 2"
     },
     {
         "id": 103,
         "title": "Nota3",
+        "fecha": "Diciembre 27 2022",
         "description": "Descripcion 3"
     },
     {
         "id": 104,
         "title": "Nota4",
+        "fecha": "Diciembre 27 2022",
         "description": "Descripcion 4"
     },
     {
         "id": 105,
         "title": "Nota5",
+        "fecha": "Diciembre 27 2022",
         "description": "Descripcion 5"
     }
 ]

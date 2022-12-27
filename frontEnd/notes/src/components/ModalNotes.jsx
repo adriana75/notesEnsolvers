@@ -22,7 +22,7 @@ const ModalList = props => {
     }  
     return (
         <>
-            <button type="button" class="btn btn-primary" onClick={openModal}>Create Note</button>
+            <button type="button" className="btn color1" onClick={openModal}>Create Note</button>
            <div>
                 <Modal isOpen={show}>
                     <ModalHeader>

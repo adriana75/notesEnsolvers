@@ -92,7 +92,7 @@ html, #root {
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: space-between;
-  margin: 10px;
+  margin: 10px 15px 10px 50px;
   padding: 20px 0;
 
   div {
@@ -150,7 +150,7 @@ html, #root {
   border-radius: 8px;
   box-shadow: var(--box-shadow-1);
   font-size: 1.5rem;
-  height: 80vh;
+  height: 40vh;
 }
 
 .input {

@@ -3,6 +3,7 @@ import ModalUpdate from "./ModalUpdate";
 
 const Checkbox = props => {
     const { onChange, data: {id, title, fecha, description, done}} = props;
+    console.log(props);
     
     return (
         <Fragment>

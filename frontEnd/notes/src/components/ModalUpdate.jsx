@@ -23,7 +23,7 @@ const ModalUpdate = props => {
     
     return (
         <>
-            <button type="button" class="btn btn-primary" onClick={openModal}>Edit</button>
+            <button type="button" class="btn color1" onClick={openModal}>Edit</button>
             <div>
                 <Modal isOpen={show}>
                     <ModalHeader>
