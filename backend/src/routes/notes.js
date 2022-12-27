@@ -6,7 +6,12 @@ const data = require('../notes.json');
 
 //Notes
 router.get('/', (req, res) => {
+    res.set({
+        // 'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': ['*']
+      })
     res.json(data);
+
     console.log(data);
 });
 
