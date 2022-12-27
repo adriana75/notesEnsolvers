@@ -10,12 +10,14 @@ const FormNotes = props => {
   
     return (
         <div className="notes">
-            <div className="input">
-                <h2>My Notes</h2>
-                <ModalNotes handleAddItem = {handleAddItem} />
-                <p><a href="#">Archivied Notes</a></p>
-                <NotesList list = {list} setList = {setList}/>                                   
+            <div className="notesHead">
+                <h2>MY NOTES</h2>
+                <div>
+                    <ModalNotes handleAddItem = {handleAddItem} />
+                    <p><a href="#">Archivied Notes</a></p>
+                </div>                              
             </div>
+            <NotesList list = {list} setList = {setList}/> 
         </div>
     )
 };

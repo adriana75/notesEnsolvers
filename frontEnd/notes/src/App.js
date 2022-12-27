@@ -5,9 +5,7 @@ import Container from './components/Container';
 class App extends React.Component {
   render(){
     return (
-      <div>
-        <Container/>
-      </div>
+      <Container/>
     )
   }
 }

@@ -7,13 +7,14 @@ const ModalList = props => {
     const openModal = () => setShow(!show); 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
-    const {handleAddItem} = props;   
+    const {handleAddItem} = props;  
     const handleSubmit = e => {
         e.preventDefault();
         handleAddItem ({
             done: false,
             id: (+new Date()).toString(),
             title,
+            fecha:(+new Date("December 25, 1995")),
             description
         });
         setTitle("");
@@ -25,24 +26,26 @@ const ModalList = props => {
            <div>
                 <Modal isOpen={show}>
                     <ModalHeader>
-                        <h2>Create/Edit Note</h2>
+                        <div className='contCancel'>
+                            <button onClick={openModal} className="cancel"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                        <h2>Create Note</h2>
                     </ModalHeader>
                     <ModalBody>
                         <form onSubmit={handleSubmit}>
-                            <div className='notes'>
+                            <div className='notesModal'>
                                 <div className="input">
-                                    <label htmlFor="title">Title</label>
-                                    <input type="text" className="inputText" value = {title} onChange = {e => setTitle(e.target.value)}/> 
-                                    <label htmlFor="content">Content</label>
-                                    <textarea type="text" rows="8" cols="20" value = {description} onChange = {e => setDescription(e.target.value)}></textarea>
+                                        <label htmlFor="title">Title: </label>
+                                        <input type="text" className="inputText" value = {title} onChange = {e => setTitle(e.target.value)}/> 
+                                        <label htmlFor="content">Content: </label>
+                                        <textarea type="text" rows="8" cols="20" value = {description} onChange = {e => setDescription(e.target.value)}></textarea>
                                 </div>
-                                <button className="btn color1" disabled = {title ? "" : "disabled"} onClick={openModal}>Add</button>
+                                <div className='conBtn'>
+                                    <button className="btn color1" disabled = {title ? "" : "disabled"} onClick={openModal}>Add</button>
+                                </div>
                             </div>
                         </form>
                     </ModalBody>
-                    <ModalFooter>
-                        <button onClick={openModal}>Cancel</button>
-                    </ModalFooter>
                 </Modal>
             </div> 
         </>

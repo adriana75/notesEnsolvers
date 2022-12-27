@@ -4,9 +4,7 @@ import FormNotes from "./FormNotes";
 const Container = () => {
 
     return (
-       <div>
-            <FormNotes/>
-        </div>
+        <FormNotes/>
     )
 }
 
