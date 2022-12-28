@@ -24,12 +24,21 @@ const updateNote = async(object, callback)=>{
 
 const createNote = async(object, callback)=>{
     const conexion = getDB.getDB()
-    //object._id = new MongoDb.ObjectId(object.id)
-    //delete object.id;
+    object._id = Number(object.id)
+    delete object.id
     await conexion.collection("note")
         .insertOne(object, callback)
 }
 
-module.exports = { notesList, updateNote, createNote };
+const deleteNote = async(id, callback)=>{
+    const conexion = getDB.getDB()
+    console.log(1111, id)
+    const filtro = { _id: parseInt(id) }
+
+    await conexion.collection("note")
+        .deleteOne(filtro, callback)
+}
+
+module.exports = { notesList, updateNote, createNote, deleteNote };
 
 

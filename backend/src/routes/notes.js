@@ -1,7 +1,7 @@
 const { Router, request } = require('express');
 const router = Router();
 const _ = require('underscore');
-const { notesList, updateNote, createNote } = require('../controller/note');
+const { notesList, updateNote, createNote, deleteNote } = require('../controller/note');
 
 const callbackGenerico = (res) =>{
     return (error,resultado) =>{
@@ -42,15 +42,12 @@ router.put('/:id', async (req, res) => {
 
 });
 
-/*
-router.delete('/:id', (req, res) => {
-    const { id } = req.params;
-    _.each(data, (note, i) => {
-        if (note.id == id) {
-            data.splice(i, 1);
-        }
-    });
-    res.send(data);
-})*/
+router.delete('/:id', async (req, res) => {
+    res.set({
+        'Access-Control-Allow-Origin': ['*']
+      })
+      
+    deleteNote(req.params.id, callbackGenerico(res))
+});
 
 module.exports = router;

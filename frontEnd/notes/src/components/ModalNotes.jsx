@@ -11,7 +11,6 @@ const ModalList = props => {
     const {handleAddItem} = props;  
 
     const handleSubmit = async e => {
-        //e.preventDefault();
         let noteAddItem = {
             _id:false,
             done: false,
