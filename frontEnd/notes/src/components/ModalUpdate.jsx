@@ -24,7 +24,7 @@ const ModalUpdate = props => {
             archivada: archivada
         });
         await updateNotes(id, handleEditItem).then(function(res){
-            console.log(res.data)
+            //console.log(res.data)
              setShow(false);
         })    
     };

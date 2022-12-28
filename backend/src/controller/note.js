@@ -22,6 +22,14 @@ const updateNote = async(object, callback)=>{
             callback)
 }
 
-module.exports = { notesList, updateNote };
+const createNote = async(object, callback)=>{
+    const conexion = getDB.getDB()
+    //object._id = new MongoDb.ObjectId(object.id)
+    //delete object.id;
+    await conexion.collection("note")
+        .insertOne(object, callback)
+}
+
+module.exports = { notesList, updateNote, createNote };
 
 

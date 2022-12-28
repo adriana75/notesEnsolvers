@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css'
+import { createNotes } from '../apiNotes';
 
 const ModalList = props => {
     let [show, setShow] = useState(false);
@@ -8,18 +9,21 @@ const ModalList = props => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const {handleAddItem} = props;  
-    const handleSubmit = e => {
-        e.preventDefault();
-        handleAddItem ({
+
+    const handleSubmit = async e => {
+        //e.preventDefault();
+        let noteAddItem = {
+            _id:false,
             done: false,
             id: (+new Date()).toString(),
             title,
             fecha:(+new Date("December 25, 1995")),
             description,
             archivada: false
+        };
+        await createNotes(noteAddItem).then(function(res){
+            setShow(false);
         });
-        setTitle("");
-        setDescription("");
     }  
     return (
         <>
@@ -42,7 +46,7 @@ const ModalList = props => {
                                         <textarea type="text" rows="8" cols="20" value = {description} onChange = {e => setDescription(e.target.value)}></textarea>
                                 </div>
                                 <div className='conBtn'>
-                                    <button className="btn color1" disabled = {title ? "" : "disabled"} onClick={openModal}>Add</button>
+                                    <input type="submit" className="btn color1" disabled = {title ? "" : "disabled"} text="Save"/>
                                 </div>
                             </div>
                         </form>
