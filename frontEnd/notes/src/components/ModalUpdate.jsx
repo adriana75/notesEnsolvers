@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import {Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css'
+import { useEffect } from 'react';
+import {updateNotes} from "../apiNotes";
+
 
 const ModalUpdate = props => {
     const [show, setShow] = useState(false);
@@ -12,21 +15,26 @@ const ModalUpdate = props => {
     let {handleEditItem} = [];
     const { list, setList } = props;
 
-    const handleSubmit = e => {
-        e.preventDefault();
+    const handleSubmit = async e => {
         handleEditItem = ({
             done: false,
             id,
             title: title,
             description: description,
             archivada: archivada
-        });    
+        });
+        await updateNotes(id, handleEditItem).then(function(res){
+            console.log(res.data)
+             setShow(false);
+        })    
     };
+
     
     return (
         <>
             <button type="button" class="btn color1" onClick={openModal}>Edit</button>
             <div>
+                {/* <ToastContainer position="top-center" autoClose={3000}/> */}
                 <Modal isOpen={show}>
                     <ModalHeader>
                         <div className='contCancel'>
@@ -35,6 +43,7 @@ const ModalUpdate = props => {
                         <h2>Edit Note</h2>
                     </ModalHeader>
                     <ModalBody>
+                        {/* <ToastContainer /> */}
                         <form onSubmit={handleSubmit}>
                             <div className='notesModal'>
                                 <div className="input">
@@ -47,7 +56,7 @@ const ModalUpdate = props => {
                                     <label>{archivada ? "Archivada" : "No archivada"}</label>
                                 </div>
                                 <div className='conBtn'>
-                                    <button className="btn color1" disabled = {title ? "" : "disabled"} onClick={openModal}>Save</button>
+                                    <input type="submit" className="btn color1" disabled = {title ? "" : "disabled"} text="Save"/>
                                 </div>
                             </div>
                         </form>

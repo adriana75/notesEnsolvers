@@ -31,7 +31,4 @@ getDB = () => {
     return conexion;
 }
 
-// export default conexionBD;
-// export {getDB}
-
 module.exports = { getDB, conexionBD }

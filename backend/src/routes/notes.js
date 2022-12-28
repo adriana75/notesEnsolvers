@@ -1,11 +1,12 @@
 const { Router, request } = require('express');
 const router = Router();
-//const _ = require('underscore');
-const data = require('../controller/note');
+const _ = require('underscore');
+const { notesList, updateNote } = require('../controller/note');
 
 const callbackGenerico = (res) =>{
     return (error,resultado) =>{
         if(error){
+            console.log(error)
             res.status(500).send("Error manipulando los datos")
         }else{
             res.json(resultado)
@@ -19,7 +20,7 @@ router.get('/', (req, res) => {
         'Access-Control-Allow-Origin': ['*']
       })
 
-    data(callbackGenerico(res))
+    notesList(callbackGenerico(res))
 });
 
 /*
@@ -34,25 +35,18 @@ router.post('/', (req, res) => {
     else {
         res.status(500).json({ "error": "There was an error." });
     }
+});*/
+
+router.put('/:id', async (req, res) => {
+    res.set({
+        'Access-Control-Allow-Origin': ['*']
+      })
+      
+    updateNote(req.body, callbackGenerico(res))
+
 });
 
-router.put('/:id', (req, res) => {
-    const { id } = req.params;
-    const { title, description } = req.body;
-    if (title && description) {
-        _.each(data, (note, i) => {
-            if (note.id == id) {
-                note.title = title;
-                note.description = description;
-            }
-        });
-        res.json(data);
-    }
-    else {
-        res.status(500).json({ "error": "There was an error." });
-    }
-});
-
+/*
 router.delete('/:id', (req, res) => {
     const { id } = req.params;
     _.each(data, (note, i) => {
