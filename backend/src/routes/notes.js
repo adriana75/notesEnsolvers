@@ -9,22 +9,17 @@ const callbackGenerico = (res) =>{
             res.status(500).send("Error manipulando los datos")
         }else{
             res.json(resultado)
-            // console.log(resultado)
         }
     }
 }
 
 //Notes
 router.get('/', (req, res) => {
-
     res.set({
-        // 'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': ['*']
       })
 
     data(callbackGenerico(res))
-
-    // res.json(datos);
 });
 
 /*

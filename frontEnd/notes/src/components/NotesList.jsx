@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Checkbox from "./Checkbox";
 
 const NotesList = props => {
+    
     const { list, setList } = props;
+    const disponibles = props.list.filter(e => !e.archivada);
+
     const onChangeStatus = e => {
         const {name, checked} = e.target;
         const update = list.map(element => ({
@@ -14,7 +17,8 @@ const NotesList = props => {
         const update = list.filter(element => !element.done);
         setList(update);
     };
-    const chbox = list.map(element => (<Checkbox key = {element.id} data = {element} onChange = {onChangeStatus}/>));
+    const chbox = disponibles.map(element =>(<Checkbox key = {element.id} data = {element} onChange = {onChangeStatus}/>));
+    
     return (
         <div className="list conNotes">
             {list.length ? chbox : "No notes"}

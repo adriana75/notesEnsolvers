@@ -3,7 +3,7 @@ import {Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css'
 
 const ModalList = props => {
-    const [show, setShow] = useState(false);
+    let [show, setShow] = useState(false);
     const openModal = () => setShow(!show); 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
@@ -15,7 +15,8 @@ const ModalList = props => {
             id: (+new Date()).toString(),
             title,
             fecha:(+new Date("December 25, 1995")),
-            description
+            description,
+            archivada: false
         });
         setTitle("");
         setDescription("");

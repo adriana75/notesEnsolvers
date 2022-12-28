@@ -8,6 +8,7 @@ const ModalUpdate = props => {
     const [id, setId] = useState(props.id);
     const [title, setTitle] = useState(props.title);
     const [description, setDescription] = useState(props.description);
+    const [archivada, setArchivada] = useState(props.archivada);
     let {handleEditItem} = [];
     const { list, setList } = props;
 
@@ -17,9 +18,10 @@ const ModalUpdate = props => {
             done: false,
             id,
             title: title,
-            description: description
-        });     
-    };   
+            description: description,
+            archivada: archivada
+        });    
+    };
     
     return (
         <>
@@ -41,6 +43,8 @@ const ModalUpdate = props => {
                                     <input type="text" className="inputText" value = {title} onChange = {e => setTitle(e.target.value)}/> 
                                     <label htmlFor="content">Content: </label>
                                     <textarea type="text" rows="8" cols="20" value = {description} onChange = {e => setDescription(e.target.value)}></textarea>
+                                    <label htmlFor='estado'>Estado: </label>
+                                    <label>{archivada ? "Archivada" : "No archivada"}</label>
                                 </div>
                                 <div className='conBtn'>
                                     <button className="btn color1" disabled = {title ? "" : "disabled"} onClick={openModal}>Save</button>

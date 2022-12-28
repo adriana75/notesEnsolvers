@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import ModalNotes from "./ModalNotes";
 import NotesList from "./NotesList";
 import { doGetRequest } from "../apiNotes";
+import NotesListArchived from "./NotesArchived";
+
 
 const FormNotes =  props => {
 
@@ -17,18 +19,17 @@ const FormNotes =  props => {
         getNotes();
      }, [])
 
-    
-
     return (
         <div className="notes">
             <div className="notesHead">
                 <h2>MY NOTES</h2>
                 <div>
                     <ModalNotes handleAddItem = {handleAddItem} />
-                    <p><a href="#">Archivied Notes</a></p>
+                    <NotesListArchived list = {list} setList = {setList}/>
                 </div>                              
             </div>
             <NotesList list = {list} setList = {setList}/> 
+            
         </div>
     )
 };
