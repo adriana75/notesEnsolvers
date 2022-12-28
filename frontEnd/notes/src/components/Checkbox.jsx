@@ -11,7 +11,7 @@ const Checkbox = props => {
                 <input className="listState" name = {_id} type="checkbox" defaultChecked =  {done} onChange = {onChange}/>
                 <div className="listText">{title}</div>
                 <div className="listText">{fecha}</div>
-                <ModalUpdate id={_id} title={title} description={description} archivada={archivada} /> 
+                <ModalUpdate id={_id} title={title} description={description} archivada={archivada} fecha={fecha}/> 
             </label>
         </Fragment>
     );

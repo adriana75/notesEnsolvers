@@ -8,7 +8,7 @@ const NotesListArchived = props => {
     const { list, setList } = props;
     let [show2, setShow2] = useState(false);
     const openModal2 = () => setShow2(!show2); 
-    const arch = list.filter(e => e.archivada)
+    
 
     const onChangeStatus = e => {
         const {name, checked} = e.target;
@@ -16,7 +16,9 @@ const NotesListArchived = props => {
             ...element,
             done: element.id === name ? checked : element.done})); 
         setList(update);
+        window.locatel.reload();
     };
+    const arch = list.filter(e => e.archivada.toString()==="true")
     const chbox = arch.map(element =>(<Checkbox key = {element.id} data = {element} onChange = {onChangeStatus}/>));
     
     return (

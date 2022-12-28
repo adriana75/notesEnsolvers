@@ -11,6 +11,7 @@ const ModalUpdate = props => {
     const [id, setId] = useState(props.id);
     const [title, setTitle] = useState(props.title);
     const [description, setDescription] = useState(props.description);
+    const [fecha, setFecha] = useState(props.fecha);
     const [archivada, setArchivada] = useState(props.archivada);
     let {handleEditItem} = [];
     const { list, setList } = props;
@@ -21,11 +22,11 @@ const ModalUpdate = props => {
             id,
             title: title,
             description: description,
+            fecha: fecha,
             archivada: archivada
         });
         await updateNotes(id, handleEditItem).then(function(res){
-            //console.log(res.data)
-             setShow(false);
+            setShow(false);
         })    
     };
 
@@ -34,7 +35,6 @@ const ModalUpdate = props => {
         <>
             <button type="button" class="btn color1" onClick={openModal}>Edit</button>
             <div>
-                {/* <ToastContainer position="top-center" autoClose={3000}/> */}
                 <Modal isOpen={show}>
                     <ModalHeader>
                         <div className='contCancel'>
@@ -43,7 +43,6 @@ const ModalUpdate = props => {
                         <h2>Edit Note</h2>
                     </ModalHeader>
                     <ModalBody>
-                        {/* <ToastContainer /> */}
                         <form onSubmit={handleSubmit}>
                             <div className='notesModal'>
                                 <div className="input">
@@ -52,8 +51,10 @@ const ModalUpdate = props => {
                                     <input type="text" className="inputText" value = {title} onChange = {e => setTitle(e.target.value)}/> 
                                     <label htmlFor="content">Content: </label>
                                     <textarea type="text" rows="8" cols="20" value = {description} onChange = {e => setDescription(e.target.value)}></textarea>
-                                    <label htmlFor='estado'>Estado: </label>
-                                    <label>{archivada ? "Archivada" : "No archivada"}</label>
+                                    <label htmlFor="date">Fecha: </label>
+                                    <input type="text" className="inputText" value = {fecha} onChange = {e => setFecha(e.target.value)}/> 
+                                    <label htmlFor='estado'>Archivada: </label>
+                                    <input type="text" value={archivada} onChange = {e => setArchivada(e.target.value)}/>
                                 </div>
                                 <div className='conBtn'>
                                     <input type="submit" className="btn color1" disabled = {title ? "" : "disabled"} text="Save"/>

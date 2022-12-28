@@ -8,6 +8,7 @@ const ModalList = props => {
     const openModal = () => setShow(!show); 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
+    const [fecha, setFecha] = useState("");
     const {handleAddItem} = props;  
 
     const handleSubmit = async e => {
@@ -16,7 +17,7 @@ const ModalList = props => {
             done: false,
             id: (+new Date()).toString(),
             title,
-            fecha:(+new Date("December 25, 1995")),
+            fecha,
             description,
             archivada: false
         };
@@ -43,6 +44,8 @@ const ModalList = props => {
                                         <input type="text" className="inputText" value = {title} onChange = {e => setTitle(e.target.value)}/> 
                                         <label htmlFor="content">Content: </label>
                                         <textarea type="text" rows="8" cols="20" value = {description} onChange = {e => setDescription(e.target.value)}></textarea>
+                                        <label htmlFor="fecha">Fecha: </label>
+                                        <input type="text" className="inputText" placeholder='DD/MM/AAAA' value= {fecha} onChange = {e => setFecha(e.target.value)}/>
                                 </div>
                                 <div className='conBtn'>
                                     <input type="submit" className="btn color1" disabled = {title ? "" : "disabled"} text="Save"/>
