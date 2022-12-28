@@ -1,18 +1,30 @@
 const { Router, request } = require('express');
 const router = Router();
 //const _ = require('underscore');
+const data = require('../controller/note');
 
-const data = require('../notes.json');
+const callbackGenerico = (res) =>{
+    return (error,resultado) =>{
+        if(error){
+            res.status(500).send("Error manipulando los datos")
+        }else{
+            res.json(resultado)
+            // console.log(resultado)
+        }
+    }
+}
 
 //Notes
 router.get('/', (req, res) => {
+
     res.set({
         // 'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': ['*']
       })
-    res.json(data);
 
-    console.log(data);
+    data(callbackGenerico(res))
+
+    // res.json(datos);
 });
 
 /*

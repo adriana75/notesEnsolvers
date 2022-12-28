@@ -3,30 +3,42 @@
         "id": 101,
         "title": "Nota1",
         "fecha": "Diciembre 27 2022",
-        "description": "Descripcion 1"
+        "description": "Descripcion 1",
+        "archivada": false
     },
     {
         "id": 102,
         "title": "Nota2",
         "fecha": "Diciembre 27 2022",
-        "description": "Descripcion 2"
+        "description": "Descripcion 2",
+        "archivada": false
     },
     {
         "id": 103,
         "title": "Nota3",
         "fecha": "Diciembre 27 2022",
-        "description": "Descripcion 3"
+        "description": "Descripcion 3",
+        "archivada": false
     },
     {
         "id": 104,
         "title": "Nota4",
         "fecha": "Diciembre 27 2022",
-        "description": "Descripcion 4"
+        "description": "Descripcion 4",
+        "archivada": false
     },
     {
         "id": 105,
         "title": "Nota5",
         "fecha": "Diciembre 27 2022",
-        "description": "Descripcion 5"
+        "description": "Descripcion 5",
+        "archivada": false
+    },
+    {
+        "id": 6,
+        "title": "Nota6",
+        "fecha": "Diciembre 27 2022",
+        "description": "Descripcion 6",
+        "archivada": false
     }
 ]
